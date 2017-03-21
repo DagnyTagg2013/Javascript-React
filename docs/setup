@@ -1,0 +1,111 @@
+0) Reference Tools for React.js
+- https://facebook.github.io/react/docs/installation.html
+- https://www.twilio.com/blog/2015/08/setting-up-react-for-es6-with-webpack-and-babel-2.html
+
+1) For Syntax highlighting:
+- select Preferences
+- select Languages & Frameworks
+- select Javascript
+- select Javascript Language Version; JSX Harmony
+
+2) From Redux Simple Starter
+- delete src folder
+- create new one, create NEW entrypoint index.js file
+
+=> React Javascript library which creates HTML to show on Browser
+- Components are modules
+
+
+3) Babel tool to show JSX (compact HTML syntax) => "transpiles" to Javascript ES6:
+
+https://babeljs.io
+
+JSX looks like HTML;
+Weback transpiles to JS ES2015 and packages it;
+Browser interprets JS;
+to produce HTML
+
+ISSUE: Unexpected Token Error within Chrome Browser on (3) above
+
+- http://stackoverflow.com/questions/33460420/babel-loader-jsx-syntaxerror-unexpected-token
+
+- <FROM> ROOT project folder:
+=> npm install babel-preset-react
+
+- ensure webpack.config.js has loader:"babel"
+configured with presets: including 'react'
+
+=> npm install --save-dev babel-preset-modern-browsers
+=> npm uninstall (above)
+
+- http://kleopetrov.me/2016/03/18/everything-about-babel/
+- https://github.com/jspm/jspm-cli/issues/2067
+
+4) TO RUN project
+
+- cd to root project folder where package.json resides
+=> npm install
+to install/re-install package dependences
+
+=> npm start
+to run webpack packager and serve on Http Server
+
+=> goto CHROME Browser URL:
+http://localhost:8080
+
+=> click TOP RHS in Chrome for Dev Tools to get DEBUGGER to show
+
+*** TODO:  need to set Firewall on Mac?
+
+5) TO RECOVER from bad npm packages
+
+=> recover prior package.json, local node_modules folder
+=> do npm install!
+
+6) ENTRYPOINT:
+
+=> index.js is dynamic scripting entrypoint; and calls RENDER INTO STATIC index.html template!
+
+7) COMPONENTIZATION: (under src/components subfolder)
+
+=> Have ONE Component (UI Type Element) PER File!
+
+=> each Component is a TYPE of UI Control; which can be NESTED
+- video_item.js
+- video_items_list.js
+
+e.g. Video LIST Component CONTAINs several of VIDEO Item Components
+
+8) GOOGLE APIs
+
+- login via Google account
+- goto API section off top LHS Browser STACKED hamburger icon
+https://accounts.google.com/ServiceLogin?service=cloudconsole&ltmpl=api&osid=1&passive=true&continue=https://console.developers.google.com/#identifier
+=> Select YouTube API Manager V3
+=> Create Project
+   'myfirstreact-162223'
+=> Enable API
+=> CREATE CREDENTIALs
+-  YouTube Data API V3
+-  for Web Browser/Javascript
+-  for Public data
+NAME Browser Key 2;
+NO REFERRER site
+- click GET CREDENTIALs with API Key:
+AIzaSyAYTJY-FZPfRj0dWHxXuPq0jqSLpJLpYHg
+AIzaSyAYTJY-FZPfRj0dWHxXuPq0jqSLpJLpYHg
+
+TODO:  need to RESTRICT usage of KEY for SECURITY
+https://support.google.com/googleapi/answer/6310037?hl=en
+=> Goto APPLE/System Preferences/Network
+IP Address on nBlue Wireless:  192.168.1.211.
+
+=> install JS NPM Package from Google to call API:
+- cd to project directory with package.json
+npm install --save youtube-api-search
+
+ATTN:  --save writes to package.json for this project!
+
+TODO:  figure out what SAVE does!
+
+9) NEXT TODO:  search_bar.js
