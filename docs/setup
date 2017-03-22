@@ -116,4 +116,35 @@ SECTION #17
 
 http://stackoverflow.com/questions/39686997/cant-connect-to-exposed-published-port-from-host
 
-11) TODO:  SECTION #17; Handling of User Events
+11) User Event-Handling
+
+- see search_bar.js called from index.js
+- User event properties on each Component/control with associated callback function/class
+
+12) State
+
+- (see search_bar.js)
+
+- property on Component which holds state of control  (ONLY CLASS-BASED COMPONENTS, not applicable to functions)
+  * via constructor( ...)
+  ATTN:  NEVER set = anywhere else, but can ACCESS!
+
+- setState() call to update based on event-notification callback function
+  this notifies React framework to refresh all dependent child nodes on DOM
+
+- access state via .term
+
+13) Weird Parts of JSX
+
+- https://zapier.com/engineering/react-js-tutorial-guide-gotchas/
+- https://www.reddit.com/r/javascript/comments/3ic12y/react_jsx_and_es6_the_weird_parts/
+- http://jamesknelson.com/learn-raw-react-ridiculously-simple-forms/
+
+14) HTML5 BEGINNER's TUTORIAL on DIV tag related module targets for CSS Styles
+
+- http://www.html-5-tutorial.com/div-tag.htm
+- http://www.html-5-tutorial.com/div-tag-cont.htm
+- http://www.tizag.com/htmlT/htmldiv.php
+
+line break
+- http://www.yourhtmlsource.com/myfirstsite/basicformatting.html

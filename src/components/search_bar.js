@@ -13,7 +13,15 @@ const SearchBar = () => {
 // ATTN:  modify from FUNCTIONAL above
 // why?  for SELF-MONITORING-STATE, create ES6 class, NOT same as a CSS Class
 // ATTN:  use ES6 to import Component, so then no need to qualify name
-class SearchBar extends Component {
+class SearchBar extends Component  {
+
+    // STATE STEP1:  use = ONCE to initialize in ctor
+    constructor(props) {
+        super(props);
+        // ATTN:  init javascript Object() like Python dictionary
+        // - http://stackoverflow.com/questions/351495/dynamically-creating-keys-in-javascript-associative-array
+        this.state = {term: ''};
+    }
 
     // ATTN:  must override this method of Component, and store state via using function as above to SAVE search string input
     //        AUTO-invoke on JSX tag invocation
@@ -22,8 +30,28 @@ class SearchBar extends Component {
         //        onChange is predefined React property
         // return <input />;
         // return <input onChange={this.onInputChange} />
-        // ATTN:  below is ES6 inline function call
-        return <input onChange = { (event) => console.log(event.target.value) } />;
+        // ATTN:  below is ES6 inline function call, making explicit separate function declaration unecessary!
+        // return <input onChange = { (event) => console.log(event.target.value) } />;
+        // STATE STEP2:  within Event Notified callback, use setState() on THIS Component to notify React framework of modification,
+        //               THEN React will update all DOM child dependencies
+        //               TODO:  lookup what this means!
+        // ATTN:  curly braces surrounding embedded Javascript within JSX HTML-LIKE syntax
+        return (
+            <div>
+                <div>
+                    <br/>
+                    Input Edit Control:
+                    <br/>
+                    <input onChange = { (event) => this.setState( { term: event.target.value } ) }/>
+                </div>
+                <div>
+                    <br/>
+                    Display of State Updates in Real-Time:
+                    <br/>
+                    <textarea rows="1" cols="20" value={ this.state.term } />
+                </div>
+            </div>
+        );
     }
 
     // ATTN:  event-handler function, takes event data
