@@ -20,7 +20,7 @@ class SearchBar extends Component  {
         super(props);
         // ATTN:  init javascript Object() like Python dictionary
         // - http://stackoverflow.com/questions/351495/dynamically-creating-keys-in-javascript-associative-array
-        this.state = {term: ''};
+        this.state = {term: 'Default Hello World!'};
     }
 
     // ATTN:  must override this method of Component, and store state via using function as above to SAVE search string input
@@ -35,14 +35,20 @@ class SearchBar extends Component  {
         // STATE STEP2:  within Event Notified callback, use setState() on THIS Component to notify React framework of modification,
         //               THEN React will update all DOM child dependencies
         //               TODO:  lookup what this means!
-        // ATTN:  curly braces surrounding embedded Javascript within JSX HTML-LIKE syntax
+        // ATTN:  curly braces surrounding embedded Javascript within JSX HTML-LIKE
+        // ATTN TRICKY: changing Component target STATE does
+        //              NOT automatically mean re-rendering Component with updated state,
+        //              INSTEAD, we must call .setState to do this
         return (
             <div>
                 <div>
                     <br/>
                     Input Edit Control:
                     <br/>
-                    <input onChange = { (event) => this.setState( { term: event.target.value } ) }/>
+                    <input
+                        value = { this.state.term }
+                        onChange = { (event) => this.setState( { term: event.target.value } ) }
+                    />
                 </div>
                 <div>
                     <br/>

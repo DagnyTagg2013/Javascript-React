@@ -134,6 +134,13 @@ http://stackoverflow.com/questions/39686997/cant-connect-to-exposed-published-po
 
 - access state via .term
 
+- KEY DISTINCTION:
+  - state does NOT change value until setState is called from event-handler for User Input
+
+  -> setting VALUE of JSX component makes it "controlled", i.e. its state VALUE depends on associated React DOM
+     - but state is NOT CHANGED until explicit .setState(...) call  (which in turn happens on UI EVENT handling)
+     - not displayed until render() gets called
+
 13) Weird Parts of JSX
 
 - https://zapier.com/engineering/react-js-tutorial-guide-gotchas/
