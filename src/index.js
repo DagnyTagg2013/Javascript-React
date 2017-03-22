@@ -31,6 +31,7 @@ const App = () => {
     // return <div>Hello World!</div>
     // ATTN:  multiline JSX requires parens enclosing it for reability!
     // ATTN:  rendering of Search Bar; must use JSX tags to effectively transpile JSX to JS creating instance!
+    // NOTE:  how rendering call from class is implicit, vs using pure function!
     return (
         <div>
             <SearchBar />

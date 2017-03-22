@@ -76,6 +76,8 @@ http://localhost:8080
 
 e.g. Video LIST Component CONTAINs several of VIDEO Item Components
 
+*** see how search_bar.js is component INVOKED via JSX FROM index.js!
+
 8) GOOGLE APIs
 
 - login via Google account
@@ -108,7 +110,7 @@ ATTN:  --save writes to package.json for this project!
 TODO:  figure out what SAVE does!
 
 9) NEXT
-TODO: search_bar.js
+SECTION #17
 
 10) TODO:  Deploy on Docker:
 
