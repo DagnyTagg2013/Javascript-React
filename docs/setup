@@ -93,7 +93,6 @@ NAME Browser Key 2;
 NO REFERRER site
 - click GET CREDENTIALs with API Key:
 AIzaSyAYTJY-FZPfRj0dWHxXuPq0jqSLpJLpYHg
-AIzaSyAYTJY-FZPfRj0dWHxXuPq0jqSLpJLpYHg
 
 TODO:  need to RESTRICT usage of KEY for SECURITY
 https://support.google.com/googleapi/answer/6310037?hl=en
@@ -108,4 +107,9 @@ ATTN:  --save writes to package.json for this project!
 
 TODO:  figure out what SAVE does!
 
-9) NEXT TODO:  search_bar.js
+9) NEXT
+TODO: search_bar.js
+
+10) TODO:  Deploy on Docker:
+
+http://stackoverflow.com/questions/39686997/cant-connect-to-exposed-published-port-from-host

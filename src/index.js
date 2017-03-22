@@ -12,6 +12,10 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
+// ATTN:  import variable EXPORTED from another file Module!
+// ATTN:  for FILE, or non-Node package imports, need to specify RELATIVE directory location to THIS CURRENT file; from file module imported
+import SearchBar from './components/search_bar'
+
 // ATTN:  API KEY for requests into YouTube!
 const API_KEY = 'AIzaSyAYTJY-FZPfRj0dWHxXuPq0jqSLpJLpYHg';
 
@@ -22,8 +26,16 @@ const API_KEY = 'AIzaSyAYTJY-FZPfRj0dWHxXuPq0jqSLpJLpYHg';
 
 // ATTN:  App function is considered a CLASS with FACTORY METHOD, NOT as an INSTANCE,
 //        so we need to instantiate INSTANCE prior to rendering that to DOM
-const App = function() {
-    return <div>Hello World!</div>
+// ATTN:  ES6 syntax for function() is () => {...
+const App = () => {
+    // return <div>Hello World!</div>
+    // ATTN:  multiline JSX requires parens enclosing it for reability!
+    // ATTN:  rendering of Search Bar; must use JSX tags to effectively transpile JSX to JS creating instance!
+    return (
+        <div>
+            <SearchBar />
+        </div>
+    );
 }
 
 
@@ -36,5 +48,7 @@ const App = function() {
 // ATTN:  SECOND arg specifies WHERE in HTML element in STATIC index.xml you render component to;
 //        or ROOT 'container' DIV in index.html! OTHERWISE ERROR:  TARGET DOM element!
 //        <div class="container"></div>
-ReactDOM.render(<App/>, document.querySelector('.container'));
+ReactDOM.render(<App />, document.querySelector('.container'));
+
+
 
