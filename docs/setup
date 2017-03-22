@@ -137,17 +137,21 @@ http://stackoverflow.com/questions/39686997/cant-connect-to-exposed-published-po
 - KEY DISTINCTION:
   - state does NOT change value until setState is called from event-handler for User Input
 
-  -> setting VALUE of JSX component makes it "controlled", i.e. its state VALUE depends on associated React DOM
-     - but state is NOT CHANGED until explicit .setState(...) call  (which in turn happens on UI EVENT handling)
-     - not displayed until render() gets called
+13) COMPONENT-BASED
 
-13) Weird Parts of JSX
+     - setting VALUE of JSX component makes it "controlled", i.e. its state VALUE depends on associated React DOM Element's STATE
+     - but state is NOT CHANGED until explicit .setState(...) call  (which in turn happens on UI EVENT handling)
+     - not displayed until render() gets
+     => any STATE change causes RE-RENDER with new state-associated value;
+     BUT STATE doesn't change until explicit .setState(...) call
+
+14) Weird Parts of JSX
 
 - https://zapier.com/engineering/react-js-tutorial-guide-gotchas/
 - https://www.reddit.com/r/javascript/comments/3ic12y/react_jsx_and_es6_the_weird_parts/
 - http://jamesknelson.com/learn-raw-react-ridiculously-simple-forms/
 
-14) HTML5 BEGINNER's TUTORIAL on DIV tag related module targets for CSS Styles
+15) HTML5 BEGINNER's TUTORIAL on DIV tag related module targets for CSS Styles
 
 - http://www.html-5-tutorial.com/div-tag.htm
 - http://www.html-5-tutorial.com/div-tag-cont.htm
@@ -155,3 +159,9 @@ http://stackoverflow.com/questions/39686997/cant-connect-to-exposed-published-po
 
 line break
 - http://www.yourhtmlsource.com/myfirstsite/basicformatting.html
+
+16) DIFFERENCE BETWEEN FUNCTION-based vs CLASS-based component
+
+- need state across calls --> CLASS-based
+- OTHERWISE, default to function-based as simpler
+

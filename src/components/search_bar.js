@@ -39,6 +39,7 @@ class SearchBar extends Component  {
         // ATTN TRICKY: changing Component target STATE does
         //              NOT automatically mean re-rendering Component with updated state,
         //              INSTEAD, we must call .setState to do this
+        // DECOUPLEs component STATE from actual UI-EVENT-TRIGGERED CHANGE!
         return (
             <div>
                 <div>
