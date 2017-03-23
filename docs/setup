@@ -64,7 +64,9 @@ http://localhost:8080
 
 6) ENTRYPOINT:
 
-=> index.js is dynamic scripting entrypoint; and calls RENDER INTO STATIC index.html template!
+=> index.js is dynamic scripting entrypoint;
+=> App is FIRST component
+=> and called via JSX tag to RENDER INTO STATIC index.html template via React.DOM.render(...) call!
 
 7) COMPONENTIZATION: (under src/components subfolder)
 
@@ -94,12 +96,13 @@ https://accounts.google.com/ServiceLogin?service=cloudconsole&ltmpl=api&osid=1&p
 NAME Browser Key 2;
 NO REFERRER site
 - click GET CREDENTIALs with API Key:
-AIzaSyAYTJY-FZPfRj0dWHxXuPq0jqSLpJLpYHg
+AIzaSyDBy6w2I6AILIjDzswggfb4NP4ouLsSqkk
 
 TODO:  need to RESTRICT usage of KEY for SECURITY
 https://support.google.com/googleapi/answer/6310037?hl=en
 => Goto APPLE/System Preferences/Network
-IP Address on nBlue Wireless:  192.168.1.211.
+(internal) IP Address on nBlue Wireless:  xxx.xxx.x.xxx
+(external) IP Address on Router to Extern:  xx.xxx.xx.xxx
 
 => install JS NPM Package from Google to call API:
 - cd to project directory with package.json
@@ -121,21 +124,24 @@ http://stackoverflow.com/questions/39686997/cant-connect-to-exposed-published-po
 - see search_bar.js called from index.js
 - User event properties on each Component/control with associated callback function/class
 
-12) State
+12) STATE
 
 - (see search_bar.js)
 
 - property on Component which holds state of control  (ONLY CLASS-BASED COMPONENTS, not applicable to functions)
   * via constructor( ...)
-  ATTN:  NEVER set = anywhere else, but can ACCESS!
+  ATTN:  NEVER set = anywhere else, other than in ctor, OR on JSX tag property= invocation;
+         HOWEVER OK to ACCESS!
 
 - setState() call to update based on event-notification callback function
-  this notifies React framework to refresh all dependent child nodes on DOM
+  this notifies React framework to refresh/call render() on all dependent child nodes on DOM
 
 - access state via .term
 
-- KEY DISTINCTION:
-  - state does NOT change value until setState is called from event-handler for User Input
+- KEY DISTINCTIONs:
+  - state does NOT change value until setState is called from event-handler for User Input Event
+  - RENDER is distinct from backing data change
+  - state LIVEs ACROSS HttpRequests and can be modified; props and ctor are @ INIT Component INSTANCE only
 
 13) COMPONENT-BASED
 
@@ -164,4 +170,54 @@ line break
 
 - need state across calls --> CLASS-based
 - OTHERWISE, default to function-based as simpler
+
+17) DOWNWARDS DATA-FLOW on Parent APP for AJAX External Data updates
+    (i.e. update state data of PARENT; DOWNWARDs DATA FLOW, so highest parent should be responsible for fetching data;
+          then will FLOW to CHILDREN)
+
+    *** NOTE:  remember to npm install the API package:  npm install ytsearch!
+
+18) conversion of FUNCTION to CLASS Component whenever you need to store Session STATE (ie over MULTIPLE Http Request/Calls)
+
+- import Component
+- class extends Component
+- add constructor to set STATE of member variables with default data
+- override render() method
+
+19) Issue with API Call due to:
+
+*** 403 error on AJAX call; maybe need to lift URL restriction on API key, regenerate a new one?
+
+*** WIKIHOW to lookup internal/external IP Addresses:
+http://www.wikihow.com/Find-Your-IP-Address-on-a-Mac
+
+*** REFER to #8 ABOVE for more info!
+
+20) DEV TOOLS SETUP
+
+10.1) use Chrome Browser, DevTools from Top LHS HAMBURGER menu
+
+10.2) Download React Debug Tools
+https://facebook.github.io/react/blog/2015/09/02/new-react-developer-tools.html
+
+10.3) Use Postman from Mac-Local App to hit external APIs
+
+- also see:  ProjectsJava
+  - WarmupREST (DropWizard)
+  - JPA (Spring Boot)
+
+GET "https://www.googleapis.com/youtube/v3/search?
+     part=snippet
+     &key=AIzaSyDBy6w2I6AILIjDzswggfb4NP4ouLsSqkk
+     &q=surfboards
+     &type=video"
+
+
+21) TODO:
+
+- Lecture #22
+
+
+
+
 

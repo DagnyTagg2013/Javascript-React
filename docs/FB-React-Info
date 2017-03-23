@@ -1,0 +1,41 @@
+
+1) Getting Started / Installations
+- https://facebook.github.io/react-native/docs/getting-started.html
+
+2) Thinking in React
+- https://facebook.github.io/react/docs/thinking-in-react.html
+
+3) State and Lifecycle:  When and Where to Store Data; and Default Values vs Props vs State
+
+- https://facebook.github.io/react/docs/state-and-lifecycle.html
+
+- http://lucybain.com/blog/2016/react-state-vs-pros/
+* NOTE:  properties are passed IN!
+
+- https://medium.freecodecamp.com/where-do-i-belong-a-guide-to-saving-react-component-data-in-state-store-static-and-this-c49b335e2a00#.nfn9m7c72
+- https://goshakkk.name/controlled-vs-uncontrolled-inputs-react/
+
+4) MY STATE takeaways:
+
+- (see search_bar.js)
+
+- property on Component which holds state of control  (ONLY CLASS-BASED COMPONENTS, not applicable to functions)
+  * via constructor( ...)
+  ATTN:  NEVER set = anywhere else, other than in ctor, OR on JSX tag property= invocation;
+         HOWEVER OK to ACCESS!
+
+  can ALSO set defaultVAlue= on JSX tag!
+
+- setState() call to update based on event-notification callback function
+  this notifies React framework to refresh/call render() on all dependent child nodes on DOM
+
+- access state via .term
+
+- KEY DISTINCTIONs:
+  - state does NOT change value until setState is called from event-handler for User Input Event
+  - RENDER is distinct from backing data change
+  - state LIVEs ACROSS HttpRequests and can be modified; props and ctor are @ INIT Component INSTANCE only
+
+5) CONTROLLED vs UNCONTROLLED Components for Forms -- i.e. PREFER CONTROLLED in MOST but the simplest scenarios:
+
+  https://goshakkk.name/controlled-vs-uncontrolled-inputs-react/

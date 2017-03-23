@@ -17,6 +17,7 @@ class SearchBar extends Component  {
 
     // STATE STEP1:  use = ONCE to initialize in ctor
     constructor(props) {
+        // ATTN:  props passed INTO component as a property on JSX-tag specification prop=
         super(props);
         // ATTN:  init javascript Object() like Python dictionary
         // - http://stackoverflow.com/questions/351495/dynamically-creating-keys-in-javascript-associative-array
@@ -47,8 +48,13 @@ class SearchBar extends Component  {
                     Input Edit Control:
                     <br/>
                     <input
+                        // ATTN:  note difference between {} for JS script, vs {} for JS Object()
+                        // ATTN:  at this point, the HttpRequest-lifetime VALUE displayed on this Component is updated from
+                        //        backing Component instance state; which in turn persists over MULTIPLE HttpRequests for a User's Browser Session!
                         value = { this.state.term }
                         onChange = { (event) => this.setState( { term: event.target.value } ) }
+                        // ATTN:  at this point, Component NOT RENDERED, and it's VALUE hasn't changed to reflect the backing latest
+                        // updated state!
                     />
                 </div>
                 <div>
@@ -61,11 +67,13 @@ class SearchBar extends Component  {
         );
     }
 
-    // ATTN:  event-handler function, takes event data
+    // ATTN:  event-handler function, takes event data, but also can be supplied as anonymous function in onChange property in render()
+    /*
     onInputChange(event) {
         // ATTN:  can printout to Chrome DevTools
         console.log(event.target.value)
     }
+    */
 }
 
 // ATTN:  only export PUBLIC stuff for external modules to IMPORT
