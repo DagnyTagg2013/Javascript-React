@@ -17,6 +17,7 @@ import YTSearch from 'youtube-api-search';
 // ATTN:  import variable EXPORTED from another file Module!
 // ATTN:  for FILE, or non-Node package imports, need to specify RELATIVE directory location to THIS CURRENT file; from file module imported
 import SearchBar from './components/search_bar'
+import VideoList from  './components/video_list';
 
 // ATTN:  API KEY for requests into YouTube!
 const API_KEY = 'AIzaSyDBy6w2I6AILIjDzswggfb4NP4ouLsSqkk';
@@ -67,17 +68,21 @@ class App extends Component {
                   (data) => {
                                 // NOTE:  logs direct return from API
                                 //console.log(data);
+                                // NOTE:  saves data from API!
                                 this.setState({ videos: data })
-                                // NOTE:  logs that data got assigned correctly
+                                // NOTE:  logs that data got assigned to state videos dictionary correctly
                                 console.log(this.state.videos);
                             }
         );
     }
 
+    // ATTN:  pass data from PARENT Component App to Child Component VideoList via JSX Props:  videos=, and using Javascript object!
+    // NOTE:  initial delay from 0 count to X due to API network lag!
     render() {
         return (
             <div>
                 <SearchBar/>
+                <VideoList videos="{this.state.videos}" />
             </div>
         );
     }
