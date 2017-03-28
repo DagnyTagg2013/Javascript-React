@@ -1,3 +1,19 @@
+
+4) TO RUN project
+
+- cd to root project folder where package.json resides
+=> npm install
+to install/re-install package dependences
+
+=> npm start
+to run webpack packager and serve on Http Server
+
+=> goto CHROME Browser URL:
+http://localhost:8080
+
+=> click TOP RHS in Chrome for Dev Tools to get DEBUGGER to show
+
+
 0) Reference Tools for React.js
 - https://facebook.github.io/react/docs/installation.html
 - https://www.twilio.com/blog/2015/08/setting-up-react-for-es6-with-webpack-and-babel-2.html
@@ -213,9 +229,12 @@ GET "https://www.googleapis.com/youtube/v3/search?
      &type=video"
 
 
-21) TODO:
+21)  Error:  Section 2: Lecture 24
 
-- Lecture #22
+
+- http://stackoverflow.com/questions/28463807/react-js-map-undefined-is-not-a-function
+- http://stackoverflow.com/questions/30668326/what-is-the-difference-between-using-constructor-vs-getinitialstate-in-react-r
+
 
 
 
