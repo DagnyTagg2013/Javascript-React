@@ -1,28 +1,41 @@
 
+BUG:
+bundle.js:21018 Uncaught TypeError: props.videos.map is not a function
+at new VideoList (bundle.js:21018)
 
-1) video_list.js
+WHERE:
+Line 17:
+video_list.js
 
-Line 21:
-Uncaught TypeError: props.videos.map is not a function
+HOW:
+- state.videos initialized in CTOR of index.js to []
+- external API to YouTube called to get list of videos data;
+  but API takes awhile to return from background thread
+- meanwhile index.js 'passes in' state.videos into video_list.js via JSX on
+  L 105 for index.js
+  <VideoList videos="{this.state.videos}" />
+- verified that in index.js render() just prior to passing IN state.videos to VideoList React Component,
+  state.videos type was correctly Array[Object]
 
+- BUT, type on receiving-side in video_list.js is the wrong type,
+  i.e. Array[String]
+  NOT  Array[Object]
+  on L 20 of video_list.js
 
-Regex
+  So, subsequent .map invocation fails as undefined.
 
-Hide network
+WTF?!:
+- NO IDEA how to fix this; as it seems INTERNAL to JSX?!
 
-Hide violations
-All
-Errors
-Warnings
-Info
-Logs
-Debug
-Handled
+TRACE:
+Chrome Dev Tools Console Trace with React Plugin on webpack bundle.js:
 ﻿
 *** bundle.js:152 index.js CTOR; State Videos Type:
 bundle.js:153 [object Array]
 *** bundle.js:158 YTSearch CALL
 bundle.js:176 YTSearch after CALL
+*** index.js render(); State Videos Type:
+bundle.js:188 [object Array]
 bundle.js:2414 Warning: Failed form propType: You provided a `value` prop to a form field without an `onChange` handler. This will render a read-only field. If the field should be mutable use `defaultValue`. Otherwise, set either `onChange` or `readOnly`. Check the render method of `SearchBar`.
 bundle.js:21017 Video_list.js:
 *** type of props.videos type passed in from index.js via {this.state.videos}

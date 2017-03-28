@@ -97,6 +97,8 @@ class App extends Component {
     // ATTN:  pass data from PARENT Component App to Child Component VideoList via JSX Props:  videos=, and using Javascript object!
     // <VideoList videos="{this.state.videos}" />
     render() {
+        console.log('index.js render(); State Videos Type:  \n');
+        console.log( Object.prototype.toString.call(this.state.videos));
         return (
             <div>
                 <SearchBar/>
