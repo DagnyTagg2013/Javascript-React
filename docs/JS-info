@@ -1,0 +1,24 @@
+
+1) How to get type of JS object:
+
+http://stackoverflow.com/questions/332422/how-do-i-get-the-name-of-an-objects-type-in-javascript
+type(x)
+
+2) How to apply function to transform all elements of an array:
+
+- prefer .map(...)
+- use for.. in without the i++ counter!
+
+3) Format string with console.log:
+
+- https://github.com/alexei/sprintf.js
+- http://stackoverflow.com/questions/610406/javascript-equivalent-to-printf-string-format
+
+4) Array vs []
+
+- http://stackoverflow.com/questions/931872/what-s-the-difference-between-array-and-while-declaring-a-javascript-ar
+
+5) Getting type of JS var
+
+- http://stackoverflow.com/questions/4456336/finding-variable-type-in-javascript
+- http://stackoverflow.com/questions/7390426/better-way-to-get-type-of-a-javascript-variable

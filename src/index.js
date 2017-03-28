@@ -58,26 +58,44 @@ YTSearch( {key: API_KEY, term: FIRST_SEARCH_TERM},
 class App extends Component {
 
     constructor(props) {
+
         super(props);
+
         // ATTN:  initialize to JS Object with value List of videos
-        this.state = { videos: [] }
+        this.state = { videos: [],
+                       selectedVideo: null
+                     };
+        console.log('index.js CTOR; State Videos Type:  \n');
+        console.log( Object.prototype.toString.call(this.state.videos));
+
         // ATTN:  AJAX API call with API key, with CALLBACK function supplied based on returned data type
         // TODO:  explain authentication key protocol
         // NOTE:  ES6 protocol if name of data same as state object store key, then just use single 'videos' without colon
+        console.log('YTSearch CALL\n')
         YTSearch( {key: API_KEY, term: FIRST_SEARCH_TERM},
                   (data) => {
+                                console.log('ASYNC YTSearch Return!');
+                                console.log('index.js YTSearch returned Data Type:  \n');
+                                console.log(Object.prototype.toString.call(data));
+                                console.log('First data element content:  ' + data[0].snippet.description)
+
                                 // NOTE:  logs direct return from API
                                 //console.log(data);
                                 // NOTE:  saves data from API!
-                                this.setState({ videos: data })
+                                this.setState({ videos: data,
+                                                selectedVideo: data[0]
+                                              })
+
                                 // NOTE:  logs that data got assigned to state videos dictionary correctly
-                                console.log(this.state.videos);
+                                console.log('State Videos Type:  \n');
+                                console.log(Object.prototype.toString.call(this.state.videos));
                             }
         );
+        console.log('YTSearch after CALL\n')
     }
 
     // ATTN:  pass data from PARENT Component App to Child Component VideoList via JSX Props:  videos=, and using Javascript object!
-    // NOTE:  initial delay from 0 count to X due to API network lag!
+    // <VideoList videos="{this.state.videos}" />
     render() {
         return (
             <div>
