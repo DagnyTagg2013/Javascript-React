@@ -24,7 +24,7 @@
   ATTN:  NEVER set = anywhere else, other than in ctor, OR on JSX tag property= invocation;
          HOWEVER OK to ACCESS!
 
-  can ALSO set defaultVAlue= on JSX tag!
+  can ALSO set defaultValue= on JSX tag!
 
 - setState() call to update based on event-notification callback function
   this notifies React framework to refresh/call render() on all dependent child nodes on DOM

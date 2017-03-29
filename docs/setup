@@ -18,7 +18,7 @@ http://localhost:8080
 - https://facebook.github.io/react/docs/installation.html
 - https://www.twilio.com/blog/2015/08/setting-up-react-for-es6-with-webpack-and-babel-2.html
 
-1) For Syntax highlighting:
+1) For Syntax highlighting on Intellij IDE:
 - select Preferences
 - select Languages & Frameworks
 - select Javascript
@@ -231,11 +231,12 @@ GET "https://www.googleapis.com/youtube/v3/search?
 
 21)  Error:  Section 2: Lecture 24
 
-
 - http://stackoverflow.com/questions/28463807/react-js-map-undefined-is-not-a-function
 - http://stackoverflow.com/questions/30668326/what-is-the-difference-between-using-constructor-vs-getinitialstate-in-react-r
 
+22) Completed Code Examples:
 
+- https://github.com/StephenGrider/ReduxCasts
 
 
 

@@ -24,8 +24,8 @@ HOW:
 
   So, subsequent .map invocation fails as undefined.
 
-WTF?!:
-- NO IDEA how to fix this; as it seems INTERNAL to JSX?!
+*** DUMBASS!
+- remove quotes around videos="..." as this casts to String and doesn't evaluate JS in {}
 
 TRACE:
 Chrome Dev Tools Console Trace with React Plugin on webpack bundle.js:
@@ -42,15 +42,7 @@ bundle.js:21017 Video_list.js:
 ": [object String]
 *** bundle.js:21018 Uncaught TypeError: props.videos.map is not a function
     at new VideoList (bundle.js:21018)
-    at ReactCompositeComponentWrapper.mountComponent (bundle.js:7458)
-    at ReactCompositeComponentWrapper.wrapper [as mountComponent] (bundle.js:1648)
-    at Object.mountComponent (bundle.js:5840)
-    at ReactDOMComponent.mountChildren (bundle.js:14410)
-    at ReactDOMComponent._createContentMarkup (bundle.js:11585)
-    at ReactDOMComponent.mountComponent (bundle.js:11473)
-    at Object.mountComponent (bundle.js:5840)
-    at ReactCompositeComponentWrapper.mountComponent (bundle.js:7535)
-    at ReactCompositeComponentWrapper.wrapper [as mountComponent] (bundle.js:1648)
+
 bundle.js:20510 XHR finished loading: GET "https://www.googleapis.com/youtube/v3/search?part=snippet&key=AIzaSyDBy6w2I6AILIjDzswggfb4NP4ouLsSqkk&q=surfboards&type=video".
 *** bundle.js:160 ASYNC YTSearch Return!
 *** bundle.js:161 index.js YTSearch returned Data Type:
@@ -58,14 +50,5 @@ bundle.js:162 [object Array]
 *** bundle.js:163 First data element content:  Surfboards, accessories and much more are available at http://www.BCSurf.com: ...
 bundle.js:19931 Error: findComponentRoot(..., .0.0.0.3): Unable to find element. This probably means the DOM was unexpectedly mutated (e.g., by the browser), usually due to forgetting a <tbody> when using tables, nesting tags like <form>, <p>, or <a>, or using non-SVG elements in an <svg> parent. Try inspecting the child nodes of the element with React ID ``.
     at invariant (bundle.js:1330)
-    at Object.findComponentRoot (bundle.js:3342)
-    at Object.findReactNodeByID (bundle.js:3257)
-    at Object.getNode (bundle.js:2740)
-    at Object.updatePropertyByID (bundle.js:2526)
-    at Object.updateWrapper (bundle.js:12772)
-    at ReactDOMComponent.updateComponent (bundle.js:11662)
-    at ReactDOMComponent.receiveComponent (bundle.js:11639)
-    at Object.receiveComponent (bundle.js:5890)
-    at Object.updateChildren (bundle.js:14755)
 util.js:211 Google Maps API warning: NoApiKeys https://developers.google.com/maps/documentation/javascript/error-messages#no-api-keys
 
